@@ -1,6 +1,8 @@
 package learn.algs;
-import edu.princeton.cs.algs4.*;
+import org.junit.Assert;
 import org.junit.Test;
+
+import edu.princeton.cs.algs4.*;
 /**
  * This class is used to test all the code exercises for algs4.
  *
@@ -16,5 +18,17 @@ public class problemTest {
         while (Math.abs(t - 9.0/t) > .001)
             t = (9.0/t + t) / 2.0;
         StdOut.printf("%.5f\n", t);
+    }
+
+    // test for 1.1.7b
+    @Test
+    public void test117b() {
+        int sum = 0;
+        for (int i = 1; i < 1000; i++)
+            for (int j = 0; j < i; j++)
+                sum++;
+        StdOut.println(sum);
+        // Here I am wrong!
+        Assert.assertEquals(499500, sum);
     }
 }
