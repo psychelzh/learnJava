@@ -2,12 +2,14 @@ package learn.algs;
 import org.junit.Assert;
 import org.junit.Test;
 
-import edu.princeton.cs.algs4.*;
+import edu.princeton.cs.algs4.StdOut;
 /**
  * This class is used to test all the code exercises for algs4.
  *
- * Each test is named as <code>test####</code>, in which <code>####</code>
- * represents the exercise order.
+ * Each test is named as {@code test####}, in which {@code ####} represents the
+ * exercise order.
+ *
+ * @author Liang Zhang
  */
 public class problemTest {
 
@@ -30,5 +32,14 @@ public class problemTest {
         StdOut.println(sum);
         // Here I am wrong!
         Assert.assertEquals(499500, sum);
+    }
+
+    /**
+     * Test for 1.1.9, to test method {@link utils#myToBinaryString(int)}.
+     */
+    @Test
+    public void test119() {
+        int integerTest = (int) (Math.random() * 100);
+        Assert.assertEquals(Integer.toBinaryString(integerTest), utils.myToBinaryString(integerTest));
     }
 }
