@@ -1,0 +1,28 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "algs",
+                "projectName": "algs",
+                "workingDirectory": "c:\\Users\\liang\\OneDrive\\Documents\\Git\\psychelzh\\learn-java",
+                "args": [],
+                "vmargs": [],
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "algs",
+                "projectName": "algs",
+                "workingDirectory": "c:\\Users\\liang\\OneDrive\\Documents\\Git\\psychelzh\\learn-java",
+                "args": [],
+                "vmargs": [],
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}
