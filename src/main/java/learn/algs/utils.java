@@ -24,7 +24,7 @@ public class utils {
     }
 
     /**
-     * Print a the contents of a two-dimensional boolean array, using * to
+     * Print the contents of a two-dimensional boolean array, using * to
      * represent {@code true} and a space to represent {@code false}. Include
      * row and column numbers.
      *
