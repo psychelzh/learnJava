@@ -6,16 +6,18 @@ import edu.princeton.cs.algs4.StdOut;
 /**
  * This class is used to test all the code exercises for algs4.
  *
- * Each test is named as {@code test####}, in which {@code ####} represents the
- * exercise order.
+ * Each test is named as {@code test_#_#_#[_#]}, in which {@code #_#_#[_#]}
+ * represents the exercise order, e.g., {@code 1_1_7_a} means exercise
+ * {@code 1.1.7.a}. The last identifier (e.g. {@code _a}) could be ignored if
+ * there is only one problem for that exercise.
  *
  * @author Liang Zhang
  */
-public class problemTest {
+public class exerciseTest {
 
     // test for 1.1.7a
     @Test
-    public void test117a() {
+    public void test_1_1_7_a() {
         double t = 9.0;
         while (Math.abs(t - 9.0/t) > .001)
             t = (9.0/t + t) / 2.0;
@@ -24,7 +26,7 @@ public class problemTest {
 
     // test for 1.1.7b
     @Test
-    public void test117b() {
+    public void test_1_1_7_b() {
         int sum = 0;
         for (int i = 1; i < 1000; i++)
             for (int j = 0; j < i; j++)
@@ -38,7 +40,7 @@ public class problemTest {
      * Test for 1.1.9, to test method {@link utils#myToBinaryString(int)}.
      */
     @Test
-    public void test119() {
+    public void test_1_1_9() {
         int integerTest = (int) (Math.random() * 100);
         Assert.assertEquals(Integer.toBinaryString(integerTest), utils.myToBinaryString(integerTest));
     }
