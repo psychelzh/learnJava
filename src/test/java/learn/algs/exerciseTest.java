@@ -44,4 +44,14 @@ public class exerciseTest {
         int integerTest = (int) (Math.random() * 100);
         Assert.assertEquals(Integer.toBinaryString(integerTest), utils.myToBinaryString(integerTest));
     }
+
+    /**
+     * Test for 1.1.11, this test will show output. The method is
+     * {@link utils#printBools(boolean[][])}.
+     */
+    @Test
+    public void test_1_1_11() {
+        boolean[][] bools = {{true, true, false, true}, {true, false, true, true}};
+        utils.printBools(bools);
+    }
 }

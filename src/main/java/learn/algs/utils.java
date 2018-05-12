@@ -23,4 +23,33 @@ public class utils {
         return s;
     }
 
+    /**
+     * Print a the contents of a two-dimensional boolean array, using * to
+     * represent {@code true} and a space to represent {@code false}. Include
+     * row and column numbers.
+     *
+     * @param bools input bool array
+     */
+    public static void printBools(boolean[][] bools) {
+        for (int row = 0; row < bools.length; row++) {
+            // print the column numbers
+            if (row == 0) {
+                System.out.print(" ");
+                for (int firstrow_col = 0; firstrow_col < bools[0].length; firstrow_col++)
+                    System.out.print(firstrow_col + 1);
+                System.out.println();
+            }
+            for (int col = 0; col < bools[0].length; col++) {
+                // print the row numbers
+                if (col == 0)
+                    System.out.print(row + 1);
+                if (bools[row][col])
+                    System.out.print("*");
+                else
+                    System.out.print(" ");
+            }
+            // begin a new line after one row printing ends
+            System.out.println();
+        }
+    }
 }
