@@ -32,6 +32,8 @@ public class utils {
      */
     public static void printBools(boolean[][] bools) {
         for (int row = 0; row < bools.length; row++) {
+            int colLengthFirstRow = bools[0].length;
+            int colLengthThisRow = bools[row].length;
             // print the column numbers
             if (row == 0) {
                 System.out.print(" ");
@@ -39,7 +41,11 @@ public class utils {
                     System.out.print(firstrow_col + 1);
                 System.out.println();
             }
-            for (int col = 0; col < bools[0].length; col++) {
+            else if (colLengthThisRow != colLengthFirstRow) {
+                throw new IllegalArgumentException(
+                    "The input boolean array does not have the same number of columns for each row!");
+            }
+            for (int col = 0; col < colLengthFirstRow; col++) {
                 // print the row numbers
                 if (col == 0)
                     System.out.print(row + 1);
