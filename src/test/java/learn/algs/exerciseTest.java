@@ -72,4 +72,26 @@ public class exerciseTest {
             System.out.println();
         }
     }
+
+    /**
+     * This method {@code mystery} is from exercise 1.1.18. I believe it is used
+     * to calculate and return the product of two integer input argument.
+     *
+     * @param a
+     * @param b
+     * @return the product of a and b
+     */
+    public static int mystery(int a, int b) {
+        if (b == 0)
+            return 0;
+        if (b % 2 == 0)
+            return mystery(a + a, b / 2);
+        return mystery(a + a, b / 2) + a;
+    }
+
+    @Test
+    public void test_1_1_18() {
+        Assert.assertEquals(50, mystery(2, 25));
+        Assert.assertEquals(33, mystery(3, 11));
+    }
 }
