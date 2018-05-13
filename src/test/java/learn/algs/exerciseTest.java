@@ -56,4 +56,20 @@ public class exerciseTest {
         boolean[][] bools = { { true, true, false, true }, { true, false, true, true } };
         utils.printBools(bools);
     }
+
+    /**
+     * Code fragment and test for 1.1.13.
+     */
+    @Test
+    public void test_1_1_13() {
+        int[][] matrix = { { 1, 2, 3 }, { 4, 5, 6 } };
+        int M = matrix.length; // row number
+        int N = matrix[0].length; // column number
+        for (int col = 0; col < N; col++) {
+            for (int row = 0; row < M; row++) {
+                System.out.print(matrix[row][col]);
+            }
+            System.out.println();
+        }
+    }
 }
