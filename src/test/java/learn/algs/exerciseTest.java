@@ -74,8 +74,8 @@ public class exerciseTest {
     }
 
     /**
-     * This method {@code mystery} is from exercise 1.1.18. I believe it is used
-     * to calculate and return the product of two integer input argument.
+     * This method {@code mystery} is from exercise 1.1.18. I believe it is used to
+     * calculate and return the product of two integer input argument.
      *
      * @param a
      * @param b
@@ -93,5 +93,17 @@ public class exerciseTest {
     public void test_1_1_18() {
         Assert.assertEquals(50, mystery(2, 25));
         Assert.assertEquals(33, mystery(3, 11));
+    }
+
+    /**
+     * Test for 1.1.19, used method {@link utils#F(int)}.
+     */
+    @Test
+    public void test_1_1_19() {
+        Assert.assertEquals(0, utils.F(0));
+        Assert.assertEquals(1, utils.F(1));
+        Assert.assertEquals(1, utils.F(2));
+        Assert.assertEquals(2, utils.F(3));
+        Assert.assertEquals(3, utils.F(4));
     }
 }

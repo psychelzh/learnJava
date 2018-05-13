@@ -57,4 +57,29 @@ public class utils {
             System.out.println();
         }
     }
+
+    /**
+     * Develop a better implementation of F(N) that saves computed values in an
+     * array.
+     *
+     * This is to implement fibonacci series.
+     *
+     * @param N the order of the series.
+     * @return the value of the series at the given order.
+     */
+    public static long F(int N) {
+        if (N == 0)
+            return 0;
+        if (N == 1)
+            return 1;
+        // using an array to store values, and the last value is the expected
+        long[] f = new long[N + 1];
+        // initialize the second value as 1
+        f[1] = 1;
+        for (int iloop = 2; iloop <= N; iloop++) {
+            // number in new place is the sum of the two preceding values
+            f[iloop] = f[iloop - 1] + f[iloop - 2];
+        }
+        return f[N];
+    }
 }
