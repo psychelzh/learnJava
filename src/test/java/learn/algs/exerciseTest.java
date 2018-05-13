@@ -1,8 +1,10 @@
 package learn.algs;
+
 import org.junit.Assert;
 import org.junit.Test;
 
 import edu.princeton.cs.algs4.StdOut;
+
 /**
  * This class is used to test all the code exercises for algs4.
  *
@@ -19,8 +21,8 @@ public class exerciseTest {
     @Test
     public void test_1_1_7_a() {
         double t = 9.0;
-        while (Math.abs(t - 9.0/t) > .001)
-            t = (9.0/t + t) / 2.0;
+        while (Math.abs(t - 9.0 / t) > .001)
+            t = (9.0 / t + t) / 2.0;
         StdOut.printf("%.5f\n", t);
     }
 
@@ -51,7 +53,7 @@ public class exerciseTest {
      */
     @Test
     public void test_1_1_11() {
-        boolean[][] bools = {{true, true, false, true}, {true, false, true, true}};
+        boolean[][] bools = { { true, true, false, true }, { true, false, true, true } };
         utils.printBools(bools);
     }
 }
