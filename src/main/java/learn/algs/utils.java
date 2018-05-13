@@ -24,9 +24,9 @@ public class utils {
     }
 
     /**
-     * Print the contents of a two-dimensional boolean array, using * to
-     * represent {@code true} and a space to represent {@code false}. Include
-     * row and column numbers.
+     * Print the contents of a two-dimensional boolean array, using * to represent
+     * {@code true} and a space to represent {@code false}. Include row and column
+     * numbers.
      *
      * @param bools input bool array
      */
@@ -40,10 +40,9 @@ public class utils {
                 for (int firstrow_col = 0; firstrow_col < bools[0].length; firstrow_col++)
                     System.out.print(firstrow_col + 1);
                 System.out.println();
-            }
-            else if (colLengthThisRow != colLengthFirstRow) {
+            } else if (colLengthThisRow != colLengthFirstRow) {
                 throw new IllegalArgumentException(
-                    "The input boolean array does not have the same number of columns for each row!");
+                        "The input boolean array does not have the same number of columns for each row!");
             }
             for (int col = 0; col < colLengthFirstRow; col++) {
                 // print the row numbers
