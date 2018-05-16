@@ -6,7 +6,7 @@ package learn.algs;
  *
  * @author Liang Zhang
  */
-public class utils {
+public class Utils {
     /**
      * Translate an integer number to a string of its binary representation.
      *

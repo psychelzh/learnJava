@@ -15,7 +15,7 @@ import edu.princeton.cs.algs4.StdOut;
  *
  * @author Liang Zhang
  */
-public class exerciseTest {
+public class ExerciseTest {
 
     // test for 1.1.7a
     @Test
@@ -39,22 +39,22 @@ public class exerciseTest {
     }
 
     /**
-     * Test for 1.1.9, to test method {@link utils#myToBinaryString(int)}.
+     * Test for 1.1.9, to test method {@link Utils#myToBinaryString(int)}.
      */
     @Test
     public void test_1_1_9() {
         int integerTest = (int) (Math.random() * 100);
-        Assert.assertEquals(Integer.toBinaryString(integerTest), utils.myToBinaryString(integerTest));
+        Assert.assertEquals(Integer.toBinaryString(integerTest), Utils.myToBinaryString(integerTest));
     }
 
     /**
      * Test for 1.1.11, this test will show output. The method is
-     * {@link utils#printBools(boolean[][])}.
+     * {@link Utils#printBools(boolean[][])}.
      */
     @Test
     public void test_1_1_11() {
         boolean[][] bools = { { true, true, false, true }, { true, false, true, true } };
-        utils.printBools(bools);
+        Utils.printBools(bools);
     }
 
     /**
@@ -96,14 +96,14 @@ public class exerciseTest {
     }
 
     /**
-     * Test for 1.1.19, used method {@link utils#F(int)}.
+     * Test for 1.1.19, used method {@link Utils#F(int)}.
      */
     @Test
     public void test_1_1_19() {
-        Assert.assertEquals(0, utils.F(0));
-        Assert.assertEquals(1, utils.F(1));
-        Assert.assertEquals(1, utils.F(2));
-        Assert.assertEquals(2, utils.F(3));
-        Assert.assertEquals(3, utils.F(4));
+        Assert.assertEquals(0, Utils.F(0));
+        Assert.assertEquals(1, Utils.F(1));
+        Assert.assertEquals(1, Utils.F(2));
+        Assert.assertEquals(2, Utils.F(3));
+        Assert.assertEquals(3, Utils.F(4));
     }
 }
