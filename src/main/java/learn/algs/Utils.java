@@ -1,3 +1,9 @@
+/*
+ * Utils
+ *
+ * This is for personal use only, belongs to Liang Zhang.
+ */
+
 package learn.algs;
 
 /**
