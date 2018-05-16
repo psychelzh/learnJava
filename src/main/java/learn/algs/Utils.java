@@ -7,8 +7,8 @@
 package learn.algs;
 
 /**
- * The {@code utils} is used to store a library of useful static methods used to
- * do excercises in the algorithm book.
+ * The {@code Utils} class is used to store a library of useful static methods
+ * used to do excercises in the algorithm book.
  *
  * @author Liang Zhang
  */
