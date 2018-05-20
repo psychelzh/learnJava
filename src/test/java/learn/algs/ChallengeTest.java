@@ -6,6 +6,8 @@
 
 package learn.algs;
 
+import org.junit.Test;
+
 /**
  * The {@code ChallengTest} class is used to do tests for the challenges on
  * Sololearn courses.
@@ -21,11 +23,25 @@ public class ChallengeTest {
         }
     }
 
-    public static void main(String[] args) {
+    @Test
+    public void test1() {
         A a = new A("1");
         A c = a;
         a = new A("3");
         System.out.print(a.a1);
         System.out.print(c.a1);
+    }
+
+    static void m(Object o) {
+        System.out.print("object");
+    }
+
+    static void m(String s) {
+        System.out.print("string");
+    }
+
+    @Test
+    public void test2() {
+        m(null);
     }
 }
