@@ -44,4 +44,19 @@ public class ChallengeTest {
     public void test2() {
         m(null);
     }
+
+    class Executor {
+        Executor() {
+        };
+
+        void Executor() {
+            System.out.println("Welcome!");
+        }
+    }
+
+    @Test
+    public void test3() {
+        Executor test = new Executor();
+        test.Executor();
+    }
 }
