@@ -15,6 +15,8 @@ import org.junit.Test;
  * @author Liang Zhang
  */
 public class ChallengeTest {
+
+    // item begins
     public static class A {
         public String a1;
 
@@ -32,6 +34,7 @@ public class ChallengeTest {
         System.out.print(c.a1);
     }
 
+    // item begins
     static void m(Object o) {
         System.out.print("object");
     }
@@ -45,6 +48,7 @@ public class ChallengeTest {
         m(null);
     }
 
+    // item begins
     class Executor {
         Executor() {
         };
