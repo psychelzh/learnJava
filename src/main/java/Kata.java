@@ -123,4 +123,29 @@ public class Kata {
     Assert.assertEquals(1, duplicateCount("abcdea"));
   }
 
+  /**
+   * Given a positive integer n written as abcd... (a, b, c, d... being digits)
+   * and a positive integer p we want to find a positive integer k, if it exists,
+   * such as the sum of the digits of n taken to the successive powers of p is
+   * equal to k * n.
+   */
+  public static long digPow(int n, int p) {
+    String numString = String.valueOf(n);
+    int powSum = 0;
+    for (int i = 0; i < numString.length(); i++) {
+      powSum += Math.pow((numString.charAt(i) - '0'), (p + i));
+    }
+    if (powSum % n == 0) {
+      return powSum / n;
+    } else {
+      return -1;
+    }
+  }
+
+  @Test
+  public void testDigPow() {
+    Assert.assertEquals(1, digPow(89, 1));
+    Assert.assertEquals(51, digPow(46288, 3));
+  }
+
 }
