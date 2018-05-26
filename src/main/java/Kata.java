@@ -2,6 +2,7 @@
  * Kata Liang Zhang
  */
 
+import java.util.LinkedList;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -27,8 +28,8 @@ public class Kata {
 
   /**
    * This is the real processing method to solve the problem <a
-   * href=https://www.codewars.com/kata/coloured-triangles>Color triangles</a>.
-   * It returns the result as {@code String} type.
+   * href=https://www.codewars.com/kata/coloured-triangles>Color triangles</a>. It returns the
+   * result as {@code String} type.
    *
    * @param row The first row of the triangle as {@code String} type.
    * @return The final color which would appear in the bottom row as {@code String} type.
@@ -81,6 +82,45 @@ public class Kata {
     String special = "R";
     Assert.assertEquals('G', triangle(row));
     Assert.assertEquals('R', triangle(special));
+  }
+
+  /**
+   * The {@code duplicateCount} counts the number of Duplicates. It will return the count of
+   * distinct case-insensitive alphabetic characters and numeric digits that occur more than once in
+   * the input string.
+   *
+   * @param text The original string, should contain letters and numbers only.
+   * @return The count of duplicate characters.
+   */
+  public static int duplicateCount(String text) {
+    char[] textCharArray = text.toLowerCase().toCharArray();
+    // use two separate lists to store unique characters and counts for each character
+    LinkedList<Character> textCharsList = new LinkedList<Character>();
+    LinkedList<Integer> textCharsCountList = new LinkedList<Integer>();
+    // traverse through every character of the text and store the count results
+    for (char textChar : textCharArray) {
+      if (textCharsList.contains(textChar)) {
+        int thisCharIndex = textCharsList.indexOf(textChar);
+        textCharsCountList.set(thisCharIndex, textCharsCountList.get(thisCharIndex) + 1);
+      } else {
+        textCharsList.addLast(textChar);
+        textCharsCountList.addLast(1);
+      }
+    }
+    // count the dupliates (count > 1)
+    int dupCount = 0;
+    for (int count : textCharsCountList) {
+      if (count > 1) {
+        dupCount++;
+      }
+    }
+    return dupCount;
+  }
+
+  @Test
+  public void testDupCount() {
+    Assert.assertEquals(0, duplicateCount("abcde"));
+    Assert.assertEquals(1, duplicateCount("abcdea"));
   }
 
 }
