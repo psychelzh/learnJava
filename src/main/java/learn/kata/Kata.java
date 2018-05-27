@@ -2,9 +2,9 @@
  * Kata Liang Zhang
  */
 
+package learn.kata;
+
 import java.util.LinkedList;
-import org.junit.Assert;
-import org.junit.Test;
 
 /**
  * The {@code Kata} class is used to record all my solutions and tests on <a
@@ -76,14 +76,6 @@ public class Kata {
     return triangleNextRow(row.substring(0, 2)) + triangleNextRow(row.substring(1));
   }
 
-  @Test
-  public void testTriangle() {
-    String row = "RGB";
-    String special = "R";
-    Assert.assertEquals('G', triangle(row));
-    Assert.assertEquals('R', triangle(special));
-  }
-
   /**
    * The {@code duplicateCount} counts the number of Duplicates. It will return the count of
    * distinct case-insensitive alphabetic characters and numeric digits that occur more than once in
@@ -117,12 +109,6 @@ public class Kata {
     return dupCount;
   }
 
-  @Test
-  public void testDupCount() {
-    Assert.assertEquals(0, duplicateCount("abcde"));
-    Assert.assertEquals(1, duplicateCount("abcdea"));
-  }
-
   /**
    * Given a positive integer n written as abcd... (a, b, c, d... being digits)
    * and a positive integer p we want to find a positive integer k, if it exists,
@@ -140,12 +126,6 @@ public class Kata {
     } else {
       return -1;
     }
-  }
-
-  @Test
-  public void testDigPow() {
-    Assert.assertEquals(1, digPow(89, 1));
-    Assert.assertEquals(51, digPow(46288, 3));
   }
 
 }
