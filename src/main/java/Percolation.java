@@ -8,8 +8,9 @@ import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
 
-  WeightedQuickUnionUF uf;
-  int dim; // number of rows/columns
+  WeightedQuickUnionUF sites; // represents all the sites
+  int dim;                    // number of rows/columns
+  boolean[] sitesIsOpen;      // represents open status for all sites
 
   /**
    * Constructor method.
@@ -26,13 +27,15 @@ public class Percolation {
     }
     // store the grid dimension (number of rows/coumns)
     dim = n;
+    // initialize as closed for all sites
+    sitesIsOpen = new boolean[dim * dim];
     // there are two virtual sites
-    uf = new WeightedQuickUnionUF(n * n + 2);
+    sites = new WeightedQuickUnionUF(n * n + 2);
     for (int i = 1; i <= n; i++) {
       // the first element denotes the top virtual site, connect it to the top row
-      uf.union(0, i);
+      sites.union(0, i);
       // the last element denotes the bottom virtual site, connect it to the bottom row
-      uf.union(n * n + 1, n * n - i + 1);
+      sites.union(n * n + 1, n * n - i + 1);
     }
   }
 
@@ -42,13 +45,35 @@ public class Percolation {
   public void open(int row, int col) {
     validate(row);
     validate(col);
+    int thisSiteIndex = (row - 1) * dim + col;
+    // mark the status of this site as open
+    sitesIsOpen[thisSiteIndex] = true;
+    // connect this site to all the adjacent open sites
+    if (row > 1) {
+      // not a site from the first row, connect to the upper site
+      sites.union(thisSiteIndex, thisSiteIndex - dim);
+    }
+    if (row < dim) {
+      // not a site from the last row, connect to the below site
+      sites.union(thisSiteIndex, thisSiteIndex + dim);
+    }
+    if (col > 1) {
+      // not a site from the first column, connect to the left site
+      sites.union(thisSiteIndex, thisSiteIndex - 1);
+    }
+    if (col < dim) {
+      // not a site from the last column, connect to the right site
+      sites.union(thisSiteIndex, thisSiteIndex + 1);
+    }
   }
 
   /**
    * Check whether site ({@code row}, {@code col}) is <b>open</b> or not.
    */
   public boolean isOpen(int row, int col) {
-    return false;
+    validate(row);
+    validate(col);
+    return sitesIsOpen[(row - 1) * dim + col];
   }
 
   /**
