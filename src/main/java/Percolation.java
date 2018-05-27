@@ -1,9 +1,17 @@
 /*
- * Percolation Liang, Zhang
+ * Percolation
+ *
+ * Author: Liang, Zhang
  */
 
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
+/**
+ * The {@code Percolation} class is implemented to complete the first program
+ * assignment of algorithm course on coursera. See <a
+ * href="http://coursera.cs.princeton.edu/algs4/assignments/percolation.html">
+ * this page</a> for more information.
+ */
 public class Percolation {
 
   private WeightedQuickUnionUF sites; // represents all the sites
