@@ -46,8 +46,12 @@ public class Percolation {
 
   /**
    * Open site ({@code row}, {@code col}) if it is not open already.
+   *
+   * @param row row number index, starting from 1
+   * @param col column number index, starting from 1
+   * @throws IllegalArgumentException when row/column number is not between 1 and dim.
    */
-  public void open(int row, int col) {
+  public void open(int row, int col) throws IllegalArgumentException {
     validate(row);
     validate(col);
     // mark the status of this site as open
@@ -77,7 +81,6 @@ public class Percolation {
     // connect any full site in the last row to the bottom virtual site
     for (int i = 1; i <= dim; i++) {
       if (isFull(dim, i)) {
-        // connect site from the last row to bottom virtual site when open
         sites.union(sub2ind(dim, i), bottomVSite);
       }
     }
@@ -85,8 +88,13 @@ public class Percolation {
 
   /**
    * Check whether site ({@code row}, {@code col}) is <b>open</b> or not.
+   *
+   * @param row row number index, starting from 1
+   * @param col column number index, starting from 1
+   * @return true if the site ({@code row}, {@code col}) is open
+   * @throws IllegalArgumentException when row/column number is not between 1 and dim.
    */
-  public boolean isOpen(int row, int col) {
+  public boolean isOpen(int row, int col) throws IllegalArgumentException {
     validate(row);
     validate(col);
     return sitesIsOpen[sub2ind(row, col)];
@@ -94,8 +102,13 @@ public class Percolation {
 
   /**
    * Check whether site ({@code row}, {@code col}) is <b>full</b> or not.
+   *
+   * @param row row number index, starting from 1
+   * @param col column number index, starting from 1
+   * @return true if the site ({@code row}, {@code col}) is full
+   * @throws IllegalArgumentException when row/column number is not between 1 and dim.
    */
-  public boolean isFull(int row, int col) {
+  public boolean isFull(int row, int col) throws IllegalArgumentException {
     validate(row);
     validate(col);
     return sites.connected(topVSite, sub2ind(row, col));
