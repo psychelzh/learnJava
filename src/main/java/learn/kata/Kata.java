@@ -119,7 +119,7 @@ public class Kata {
     String numString = String.valueOf(n);
     int powSum = 0;
     for (int i = 0; i < numString.length(); i++) {
-      powSum += Math.pow((numString.charAt(i) - '0'), (p + i));
+      powSum += Math.pow(numString.charAt(i) - '0', p + i);
     }
     if (powSum % n == 0) {
       return powSum / n;

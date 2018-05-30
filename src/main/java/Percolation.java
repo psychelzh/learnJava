@@ -1,35 +1,62 @@
-/*
- * Percolation
+/******************************************************************************
+ *  Name:    Liang Zhang
+ *  NetID:   lz
+ *  Precept: P01
  *
- * Author: Liang, Zhang
- */
+ *  Partner Name:    N/A
+ *  Partner NetID:   N/A
+ *  Partner Precept: N/A
+ *
+ *  Description:  Model an n-by-n percolation system using the union-find
+ *                data structure.
+ ******************************************************************************/
 
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 /**
  * The {@code Percolation} class is implemented to complete the first program
- * assignment of algorithm course on coursera. See <a
- * href="http://coursera.cs.princeton.edu/algs4/assignments/percolation.html">
- * this page</a> for more information.
+ * assignment of algorithm course on coursera. See <a href=
+ * "http://coursera.cs.princeton.edu/algs4/assignments/percolation.html"> this
+ * page</a> for more information.
  */
 public class Percolation {
 
-  private WeightedQuickUnionUF sites; // represents all the sites
-  private int dim; // number of rows/columns
-  private boolean[] sitesIsOpen; // represents open status for all sites
-  private int topVSite; // index of top virtual site
-  private int bottomVSite; // index of bottom virtual site
+  /**
+   * Use a {@link WeightedQuickUnionUF} object to represents all the sites.
+   */
+  private final WeightedQuickUnionUF sites;
+
+  /**
+   * Dimension of the perolation system, could not be modified.
+   */
+  private final int dim;
+
+  /**
+   * Boolean array to reprensent the open status for all sites.
+   */
+  private boolean[] sitesIsOpen;
+
+  /**
+   * Index of top virtual site.
+   */
+  private final int topVSite;
+
+  /**
+   * Index of bottom virtual site.
+   */
+  private final int bottomVSite;
 
   /**
    * Constructor method.
    *
-   * <p>create n-by-n grid, with all sites blocked.
+   * <p>
+   * create n-by-n grid, with all sites blocked.
    *
    * @param n The number of rows/columns.
-   * @throws IllegalArgumentException If the number of rows/columns input is not larger than 0, this
-   *                                  error will be thrown.
+   * @throws IllegalArgumentException If the number of rows/columns input is not
+   *                                  larger than 0, this error will be thrown.
    */
-  public Percolation(int n) throws IllegalArgumentException {
+  public Percolation(final int n) {
     if (n <= 0) {
       throw new IllegalArgumentException("Invalid number of rows/columns");
     }
@@ -49,9 +76,10 @@ public class Percolation {
    *
    * @param row row number index, starting from 1
    * @param col column number index, starting from 1
-   * @throws IllegalArgumentException when row/column number is not between 1 and dim.
+   * @throws IllegalArgumentException if {@code (row <= 0 || row > n)
+   *                                  || (col <= 0 || col > n)}
    */
-  public void open(int row, int col) throws IllegalArgumentException {
+  public void open(final int row, final int col) {
     validate(row);
     validate(col);
     // mark the status of this site as open
@@ -92,9 +120,10 @@ public class Percolation {
    * @param row row number index, starting from 1
    * @param col column number index, starting from 1
    * @return true if the site ({@code row}, {@code col}) is open
-   * @throws IllegalArgumentException when row/column number is not between 1 and dim.
+   * @throws IllegalArgumentException if {@code (row <= 0 || row > n)
+   *                                  || (col <= 0 || col > n)}
    */
-  public boolean isOpen(int row, int col) throws IllegalArgumentException {
+  public boolean isOpen(final int row, final int col) {
     validate(row);
     validate(col);
     return sitesIsOpen[sub2ind(row, col)];
@@ -106,9 +135,10 @@ public class Percolation {
    * @param row row number index, starting from 1
    * @param col column number index, starting from 1
    * @return true if the site ({@code row}, {@code col}) is full
-   * @throws IllegalArgumentException when row/column number is not between 1 and dim.
+   * @throws IllegalArgumentException if {@code (row <= 0 || row > n)
+   *                                  || (col <= 0 || col > n)}
    */
-  public boolean isFull(int row, int col) throws IllegalArgumentException {
+  public boolean isFull(final int row, final int col) {
     validate(row);
     validate(col);
     return sites.connected(topVSite, sub2ind(row, col));
@@ -116,6 +146,8 @@ public class Percolation {
 
   /**
    * Get the number of open sites.
+   *
+   * @return the number of open sites in the system (virtual sites not included)
    */
   public int numberOfOpenSites() {
     int count = 0;
@@ -129,28 +161,37 @@ public class Percolation {
 
   /**
    * Check whether the system percolates or not.
+   *
+   * @return {@code true} if the system percolates, {@code false} otherwise
    */
   public boolean percolates() {
     // the system percolates when the top and bottom virtual sites are connected
     return sites.connected(topVSite, bottomVSite);
   }
 
-  // validate that p is a valid row/column index
-  private void validate(int p) {
+  /**
+   * Validate that p is a valid row/column index.
+   *
+   * @param p the row/column index to be checked
+   * @throws IllegalArgumentException if {@code p <= 0 || p > dim}
+   */
+  private void validate(final int p) {
     if (p <= 0 || p > dim) {
-      throw new IllegalArgumentException("index " + p + " is not between 1 and " + dim);
+      throw new IllegalArgumentException("index " + p + " is not between 1 and "
+          + dim);
     }
   }
 
-  // convert row/column index to site order index
-  private int sub2ind(int row, int col) {
+  /**
+   * Convert row/column index to site order index.
+   *
+   * @param row row index
+   * @param col column index
+   * @return the order index of the system
+   */
+  private int sub2ind(final int row, final int col) {
     validate(row);
     validate(col);
     return (row - 1) * dim + col - 1;
   }
-
-  /**
-   * Test client.
-   */
-  public static void main(String[] args) {}
 }
