@@ -9,7 +9,8 @@ package learn.algs;
 import org.junit.Test;
 
 /**
- * The {@code ChallengTest} class is used to do tests for the challenges on Sololearn courses.
+ * The {@code ChallengTest} class is used to do tests for the challenges on
+ * Sololearn courses.
  *
  * @author Liang Zhang
  */
@@ -49,7 +50,8 @@ public class ChallengeTest {
 
   // item begins
   class Executor {
-    Executor() {}
+    Executor() {
+    }
 
     void Executor() {
       System.out.println("Welcome!");
