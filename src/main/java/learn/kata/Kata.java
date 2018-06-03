@@ -12,14 +12,20 @@ import java.util.LinkedList;
  *
  * @author Liang Zhang
  */
-public class Kata {
+public final class Kata {
+
+  /**
+   * Hiden constructor.
+   */
+  private Kata() { }
 
   /**
    * This is the major method used to solve the problem <a
    * href=https://www.codewars.com/kata/coloured-triangles>Color triangles</a>.
    *
    * @param row The first row of the triangle as {@code String} type.
-   * @return The final color which would appear in the bottom row as {@code char} type.
+   * @return The final color which would appear in the bottom row as {@code char}
+   *         type.
    */
   public static char triangle(final String row) {
     // Return the answer
@@ -28,11 +34,12 @@ public class Kata {
 
   /**
    * This is the real processing method to solve the problem <a
-   * href=https://www.codewars.com/kata/coloured-triangles>Color triangles</a>. It returns the
-   * result as {@code String} type.
+   * href=https://www.codewars.com/kata/coloured-triangles>Color triangles</a>. It
+   * returns the result as {@code String} type.
    *
    * @param row The first row of the triangle as {@code String} type.
-   * @return The final color which would appear in the bottom row as {@code String} type.
+   * @return The final color which would appear in the bottom row as
+   *         {@code String} type.
    */
   public static String triangleString(final String row) {
     // the base case
@@ -57,19 +64,19 @@ public class Kata {
     if (row.length() == 2) {
       // a brute force approach to set the return values
       switch (row) {
-        case "RR":
-        case "GB":
-        case "BG":
-          return "R";
-        case "BB":
-        case "GR":
-        case "RG":
-          return "B";
-        case "GG":
-        case "BR":
-        case "RB":
-          return "G";
-        default:
+      case "RR":
+      case "GB":
+      case "BG":
+        return "R";
+      case "BB":
+      case "GR":
+      case "RG":
+        return "B";
+      case "GG":
+      case "BR":
+      case "RB":
+        return "G";
+      default:
       }
     }
     // recursively calls this method
@@ -77,16 +84,17 @@ public class Kata {
   }
 
   /**
-   * The {@code duplicateCount} counts the number of Duplicates. It will return the count of
-   * distinct case-insensitive alphabetic characters and numeric digits that occur more than once in
-   * the input string.
+   * The {@code duplicateCount} counts the number of Duplicates. It will return
+   * the count of distinct case-insensitive alphabetic characters and numeric
+   * digits that occur more than once in the input string.
    *
    * @param text The original string, should contain letters and numbers only.
    * @return The count of duplicate characters.
    */
   public static int duplicateCount(String text) {
     char[] textCharArray = text.toLowerCase().toCharArray();
-    // use two separate lists to store unique characters and counts for each character
+    // use two separate lists to store unique characters and counts for each
+    // character
     LinkedList<Character> textCharsList = new LinkedList<Character>();
     LinkedList<Integer> textCharsCountList = new LinkedList<Integer>();
     // traverse through every character of the text and store the count results
