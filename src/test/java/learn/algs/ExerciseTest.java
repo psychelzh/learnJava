@@ -12,10 +12,11 @@ import org.junit.Test;
 
 /**
  * This class is used to test all the code exercises for algs4.
- * </p>
- * Each test is named as {@code test_#_#_#[_#]}, in which {@code #_#_#[_#]} represents the exercise
- * order, e.g., {@code 1_1_7_a} means exercise {@code 1.1.7.a}. The last identifier (e.g.
- * {@code _a}) could be ignored if there is only one problem for that exercise.
+ *
+ * <p>Each test is named as {@code test_#_#_#[_#]}, in which {@code #_#_#[_#]}
+ * represents the exercise order, e.g., {@code 1_1_7_a} means exercise
+ * {@code 1.1.7.a}. The last identifier (e.g. {@code _a}) could be ignored if
+ * there is only one problem for that exercise.
  *
  * @author Liang Zhang
  */
@@ -60,7 +61,7 @@ public class ExerciseTest {
    */
   @Test
   public void test_1_1_11() {
-    boolean[][] bools = {{true, true, false, true}, {true, false, true, true}};
+    boolean[][] bools = { { true, true, false, true }, { true, false, true, true } };
     Utils.printBools(bools);
   }
 
@@ -69,7 +70,7 @@ public class ExerciseTest {
    */
   @Test
   public void test_1_1_13() {
-    int[][] matrix = {{1, 2, 3}, {4, 5, 6}};
+    int[][] matrix = { { 1, 2, 3 }, { 4, 5, 6 } };
     int m = matrix.length; // row number
     int n = matrix[0].length; // column number
     for (int col = 0; col < n; col++) {
@@ -81,8 +82,8 @@ public class ExerciseTest {
   }
 
   /**
-   * This method {@code mystery} is from exercise 1.1.18. I believe it is used to calculate and
-   * return the product of two integer input argument.
+   * This method {@code mystery} is from exercise 1.1.18. I believe it is used to
+   * calculate and return the product of two integer input argument.
    *
    * @param a integer 1
    * @param b integer 2
